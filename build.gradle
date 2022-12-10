@@ -2,6 +2,7 @@ defaultTasks 'clean', 'test', 'aggregate'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 buildscript {
@@ -36,7 +37,7 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:${logbackVersion}",
             'com.opencsv:opencsv:5.7.1'
 
-    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",

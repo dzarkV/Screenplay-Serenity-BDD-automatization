@@ -1,7 +1,6 @@
-package com.challenge.hooks;
+package com.challenge.utilities;
 
 import com.challenge.models.UserData;
-import io.cucumber.java.DataTableType;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -12,7 +11,6 @@ import java.util.List;
 
 public class csvToUsersDataRegistry {
 
-    @DataTableType
     public static List<UserData> fromCsvToUsersData() {
         Reader filereader = null;
         List<UserData> listOfUsers = new ArrayList<>();

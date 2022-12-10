@@ -7,7 +7,8 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
-import static com.challenge.hooks.csvToUsersDataRegistry.fromCsvToUsersData;
+import static com.challenge.utilities.csvToUsersDataRegistry.fromCsvToUsersData;
+
 
 public class AddRegistryStepDefinitions {
     @Given("{string} desea guardar sus datos de usuario")

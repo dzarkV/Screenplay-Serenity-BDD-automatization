@@ -1,4 +1,4 @@
-package com.challenge.stage;
+package com.challenge.hooks;
 
 import io.cucumber.java.Before;
 import net.serenitybdd.screenplay.actors.OnStage;

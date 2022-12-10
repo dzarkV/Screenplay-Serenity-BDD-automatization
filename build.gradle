@@ -15,7 +15,6 @@ buildscript {
     }
 }
 
-
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
@@ -34,7 +33,8 @@ ext {
 }
 
 dependencies {
-    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}",
+            'com.opencsv:opencsv:5.7.1'
 
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
@@ -46,11 +46,14 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}",
             "org.junit.vintage:junit-vintage-engine:${junitJupiterVersion}",
             "org.assertj:assertj-core:${assertJVersion}"
+
 }
 
 test {
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
+    systemProperty "file.encoding", "UTF-8"
+    systemProperty "cucumber.options", System.properties.getProperty("cucumber.options")
 }
 
 gradle.startParameter.continueOnFailure = true

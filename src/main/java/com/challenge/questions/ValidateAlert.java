@@ -7,8 +7,8 @@ import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.EMAIL_FI
 
 public class ValidateAlert {
 
-    public static Question<String> atributeRequiredValidated(String attribute){
-        return Question.about("If a data of a field required not entered")
-                .answeredBy(CSSValue.of(EMAIL_FIELD, attribute));
+    public static Question<String> fieldEmailIsEmpty(){
+        return Question.about("If data of email field required is not filled")
+                .answeredBy(actor -> actor.asksFor(CSSValue.of(EMAIL_FIELD).named("border-color")));
     }
 }

@@ -9,6 +9,6 @@ public class ValidateText  {
 
     public static Question<String> textValidated(){
         return Question.about("If new registry is entered in a new row")
-                .answeredBy(TextContent.of(NEW_REGISTRY_IN_TABLE));
+                .answeredBy(actor -> actor.asksFor(TextContent.of(NEW_REGISTRY_IN_TABLE)));
     }
 }

@@ -16,7 +16,7 @@ Feature: Agregar nuevo registro a web tables
 #      | Pepe   | Portocarrero | 32   | pportocarrero@mail.com | 350000  | Sports       |
 #      | Dayro  | Moreno       | 35   |                        | 500000  | Parties      |
 
-  Scenario: Agregar los datos de usuario al registro
-    Given "Actor" desea guardar sus datos de usuario
+  Scenario: Agregar los datos de usuario de manera exitosa
+    Given "Pepe" desea guardar sus datos de usuario
     When el ingresa sus datos de usuario
     Then el ve sus datos como una fila en el registro

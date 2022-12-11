@@ -34,8 +34,7 @@ ext {
 }
 
 dependencies {
-    implementation "ch.qos.logback:logback-classic:${logbackVersion}",
-            'com.opencsv:opencsv:5.7.1'
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
 
     implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",

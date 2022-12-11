@@ -5,10 +5,8 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class SetTheStage {
-
     @Before
     public void setTheStage() throws Throwable {
-
         OnStage.setTheStage(new OnlineCast());
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class csvToUsersDataRegistry {
 
     public static List<UserData> fromCsvToUsersData() {
-        Reader filereader = null;
+        Reader filereader;
         List<UserData> listOfUsers = new ArrayList<>();
 
         try {

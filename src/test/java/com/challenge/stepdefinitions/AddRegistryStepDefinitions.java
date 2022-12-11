@@ -1,6 +1,7 @@
 package com.challenge.stepdefinitions;
 
 import com.challenge.models.UserData;
+import com.challenge.questions.ValidateAlert;
 import com.challenge.questions.ValidateText;
 import com.challenge.tasks.AddNewRegistry;
 import com.challenge.tasks.NavigateTo;
@@ -40,4 +41,18 @@ public class AddRegistryStepDefinitions {
                             containsString(userDataList.get(0).getName()+userDataList.get(0).getLastName())));
     }
 
+    @When("el ingresa sus datos excepto el email")
+    public void elIngresaSusDatosDeUsuarioIncompletos() {
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaWebTables(),
+                AddNewRegistry.withDataUser(userDataList.get(1)));
+    }
+
+    @Then("el ve un aviso indicando que le falta ingresar el email")
+    public void elVeUnAvisoIndicandoCualDatoLeFaltaIngresar() {
+        theActorInTheSpotlight().should(
+                seeThat("Fiel incompleted is required",
+                        ValidateAlert.atributeRequiredValidated(
+                                ".form-control.is-invalid, .was-validated .form-control:invalid"))
+        );
+    }
 }

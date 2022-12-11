@@ -30,6 +30,9 @@ public class DemoQaWebTablesPage extends PageObject {
     public static final Target SUBMIT_BUTTON = Target.the("Submit registry button")
             .located(By.id("submit"));
 
-    public static final org.openqa.selenium.By NEW_REGISTRY_IN_TABLE = By.xpath("(//div[@role='row'])[5]");
+//    public static final org.openqa.selenium.By NEW_REGISTRY_IN_TABLE = By.xpath("(//div[@role='row'])[5]");
+    public static final Target NEW_REGISTRY_IN_TABLE = Target.the("Row in web data with new registry")
+        .located(By.xpath("(//div[@role='row'])[5]"));
+
 
 }

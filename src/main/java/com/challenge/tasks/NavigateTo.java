@@ -1,6 +1,5 @@
 package com.challenge.tasks;
 
-import com.challenge.userinterfaces.registry.DemoQaHomePage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -12,12 +11,13 @@ import static com.challenge.userinterfaces.registry.DemoQaElementsPage.SUB_ELEME
 import static com.challenge.userinterfaces.registry.DemoQaHomePage.ELEMENT;
 
 public class NavigateTo {
+
     public static Performable theDemoQaHomePage() {
         return Task.where("{0} opens the Demo QA home page",
-                Open.browserOn().the(DemoQaHomePage.class));
+                Open.browserOn().thePageNamed("pages.demoqa"));
     }
 
-    public static Performable theDemoQaWebTables() {
+    public static Performable theDemoQaSubPage() {
         return Task.where("{0} navigate to web tables page",
                 WaitUntil.the(ELEMENT, WebElementStateMatchers.isCurrentlyVisible()).forNoMoreThan(5).seconds(),
                 Click.on(ELEMENT),

@@ -12,12 +12,12 @@ import java.util.List;
 public class csvToUsersDataRegistry {
 
     public static List<UserData> fromCsvToUsersData() {
-        Reader filereader;
+        Reader csvFileReader;
         List<UserData> listOfUsers = new ArrayList<>();
 
         try {
-            filereader = new FileReader("src/test/resources/testdata/examples_registry.csv");
-            Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(filereader);
+            csvFileReader = new FileReader("src/test/resources/testdata/examples_registry.csv");
+            Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(csvFileReader);
 
             for (CSVRecord record : records) {
                 listOfUsers.add(new UserData(record.get("nombre"), record.get("apellido"),

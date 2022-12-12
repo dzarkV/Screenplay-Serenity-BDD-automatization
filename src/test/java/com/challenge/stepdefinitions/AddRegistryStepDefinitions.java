@@ -32,7 +32,7 @@ public class AddRegistryStepDefinitions {
 
     @When("el ingresa sus datos de usuario completos")
     public void elIngresaSusDatosDeUsuarioCompletos() {
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaWebTables(),
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(),
                 AddNewRegistry.withDataUser(userDataList.get(0)));
     }
 
@@ -49,7 +49,7 @@ public class AddRegistryStepDefinitions {
 
     @When("el ingresa sus datos excepto el email")
     public void elIngresaSusDatosDeUsuarioIncompletos() {
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaWebTables(),
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(),
                 AddNewRegistry.withDataUser(userDataList.get(1)));
     }
 
@@ -64,7 +64,7 @@ public class AddRegistryStepDefinitions {
 
     @When("ella ingresa sus datos de edad con letras")
     public void ellaIngresaSusDatosDeEdadConLetras() {
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaWebTables(),
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(),
                 AddNewRegistry.withDataUser(userDataList.get(2)));
     }
 

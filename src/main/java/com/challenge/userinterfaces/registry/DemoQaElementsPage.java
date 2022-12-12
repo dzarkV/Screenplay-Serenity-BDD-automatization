@@ -6,6 +6,6 @@ import net.serenitybdd.screenplay.targets.Target;
 public class DemoQaElementsPage extends PageObject {
 
     public static final Target SUB_ELEMENT = Target.the("Subsection of element")
-            .locatedBy("//span[normalize-space()='Web Tables']");
+            .locatedBy("//span[normalize-space()='{0}']");
 
 }

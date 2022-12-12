@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         glue = {"com.challenge.hooks","com.challenge.stepdefinitions"},
         features = "src/test/resources/features/registry/add_registry.feature",
+//        tags = "@happy",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false
 )

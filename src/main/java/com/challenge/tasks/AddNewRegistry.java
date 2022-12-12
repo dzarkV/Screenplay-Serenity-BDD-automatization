@@ -15,7 +15,7 @@ public class AddNewRegistry {
     public static Performable withDataUser(UserData user){
         return Task.where("{0} enter new registries",
                 WaitUntil.the(ADD_BUTTON, WebElementStateMatchers.isCurrentlyVisible())
-                        .forNoMoreThan(10).seconds(),
+                        .forNoMoreThan(2).seconds(),
                 Click.on(ADD_BUTTON),
                 Enter.theValue(user.getName()).into(NAME_FIELD),
                 Enter.theValue(user.getLastName()).into(LAST_NAME_FIELD),

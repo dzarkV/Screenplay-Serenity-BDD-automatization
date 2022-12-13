@@ -5,16 +5,16 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
 
 public class AddNewRegistry {
 
     public static Performable withDataUser(UserData user){
         return Task.where("{0} enter new registries",
-                WaitUntil.the(ADD_BUTTON, WebElementStateMatchers.isCurrentlyVisible())
+                WaitUntil.the(ADD_BUTTON, isCurrentlyVisible())
                         .forNoMoreThan(2).seconds(),
                 Click.on(ADD_BUTTON),
                 Enter.theValue(user.getName()).into(NAME_FIELD),

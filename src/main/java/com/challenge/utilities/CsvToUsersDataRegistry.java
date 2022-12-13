@@ -9,7 +9,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class csvToUsersDataRegistry {
+public class CsvToUsersDataRegistry {
 
     public static List<UserData> fromCsvToUsersData() {
         Reader csvFileReader;

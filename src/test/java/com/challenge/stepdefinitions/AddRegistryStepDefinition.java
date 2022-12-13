@@ -16,14 +16,14 @@ import io.cucumber.java.en.When;
 import java.util.List;
 
 import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToList;
-import static com.challenge.utilities.csvToUsersDataRegistry.fromCsvToUsersData;
+import static com.challenge.utilities.CsvToUsersDataRegistry.fromCsvToUsersData;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.*;
 
 
-public class AddRegistryStepDefinitions {
+public class AddRegistryStepDefinition {
 
     private final List<UserData> userDataList = fromCsvToUsersData();
     private final List<String> webElements = fromJsonFileToList("Flow 1");
@@ -34,12 +34,12 @@ public class AddRegistryStepDefinitions {
         theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElements.get(0), webElements.get(1)));
     }
 
-    @When("el ingresa sus datos de usuario completos")
+    @When("El ingresa sus datos de usuario completos")
     public void elIngresaSusDatosDeUsuarioCompletos() {
         theActorInTheSpotlight().attemptsTo(AddNewRegistry.withDataUser(userDataList.get(0)));
     }
 
-    @Then("el ve sus datos como una fila en el registro")
+    @Then("El ve sus datos como una fila en el registro")
     public void veSusDatosComoUnaFilaEnElRegistro() {
             theActorInTheSpotlight().should(
                     seeThat("New registry entered ",
@@ -50,12 +50,12 @@ public class AddRegistryStepDefinitions {
             theActorInTheSpotlight().attemptsTo(DeleteRegistry.withDeleteButton());
     }
 
-    @When("el ingresa sus datos excepto el email")
+    @When("El ingresa sus datos excepto el email")
     public void elIngresaSusDatosDeUsuarioIncompletos() {
         theActorInTheSpotlight().attemptsTo(AddNewRegistry.withDataUser(userDataList.get(1)));
     }
 
-    @Then("el ve un aviso indicando que le falta ingresar el email")
+    @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
@@ -64,14 +64,14 @@ public class AddRegistryStepDefinitions {
         );
     }
 
-    @When("ella ingresa sus datos de edad con letras")
+    @When("Ella ingresa sus datos de edad con letras")
     public void ellaIngresaSusDatosDeEdadConLetras() {
         theActorInTheSpotlight().attemptsTo(AddNewRegistry.withDataUser(userDataList.get(2)));
     }
 
-    @Then("ella ve que no puede continuar con el registro")
+    @Then("Ella ve que no puede continuar con el registro")
     public void ellaVeQueNoPuedeContinuarConElRegistro() {
-        theActorInTheSpotlight().should(seeThat("Actor cannnot continue with registry",
+        theActorInTheSpotlight().should(seeThat("Actor cannot continue with registry",
                 StillVisible.submitButton(),
                 equalTo(true))
         );

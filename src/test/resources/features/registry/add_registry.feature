@@ -1,22 +1,23 @@
 Feature: Agregar nuevo registro a web tables
-#  Yo como aprendiz de sophos academy
-#  Necesito agregar nuevos registros
-#  Para validar que los registros son guardados correctamente
+#  Varias personas como usuarios de la pagina web
+#  Necesitan agregar nuevos registros
+#  Para almacenar sus datos correctamente
 
-#  Background:
-#    Given "John" va a la pagina web de demoqa
-#    Then puede ver el titulo de la pagina demoqa
+  @happy
+  Scenario: Agregar los datos de usuario de manera exitosa
+    Given "Pepe" desea guardar sus datos de usuario en la pagina web
+    When El ingresa sus datos de usuario completos
+    Then El ve sus datos como una fila en el registro
 
-#  Scenario Outline: Agregar los datos de usuario al registro
-#    Given "<nombre>" desea guardar sus datos de usuario
-#    When el ingresa sus datos "<nombre>" "<apellido>" "<edad>" "<email>" "<salario>" y "<departamento>"
-#    Then el ve sus datos como una fila en el registro
-#    Examples:
-#      | nombre | apellido     | edad | email                  | salario | departamento |
-#      | Pepe   | Portocarrero | 32   | pportocarrero@mail.com | 350000  | Sports       |
-#      | Dayro  | Moreno       | 35   |                        | 500000  | Parties      |
+  @incompletedata
+  Scenario: Agregar los datos de usuario de manera incompleta
+    Given "Dayro" desea guardar sus datos de usuario en la pagina web
+    When El ingresa sus datos excepto el email
+    Then El ve un aviso indicando que le falta ingresar el email
 
-  Scenario: Agregar los datos de usuario al registro
-    Given "Actor" desea guardar sus datos de usuario
-    When el ingresa sus datos de usuario
-    Then el ve sus datos como una fila en el registro
+  @typeerror
+  Scenario: Agregar los datos de edad con caracteres en lugar de números
+    Given "Marina" desea guardar sus datos de usuario en la pagina web
+    When Ella ingresa sus datos de edad con letras
+    Then Ella ve que no puede continuar con el registro
+    And sus datos no son guardados

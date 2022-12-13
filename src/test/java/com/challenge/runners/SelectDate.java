@@ -8,10 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = "pretty",
         glue = {"com.challenge.hooks","com.challenge.stepdefinitions"},
-        features = "src/test/resources/features/registry/add_registry.feature",
-//        tags = "@happy",
+        features = "src/test/resources/features/dates/select_date.feature",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false
 )
-public class AddRegistry {
+public class SelectDate {
 }

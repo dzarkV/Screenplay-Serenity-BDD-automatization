@@ -2,7 +2,7 @@ Feature: Seleccionar fechas en la pagina web
 #      | Jorge     | 26/04/2017       | 04/26/2017                 |
 
   @selectDate
-  Scenario Outline: Seleccionar su fecha de nacimiento
+  Scenario Outline: Seleccionar fecha de nacimiento
     Given "<usuario>" quiere registrar la fecha de nacimiento en la pagina
     When El selecciona la "<fecha>"
     Then La "<fecha registrada>" se muestra en pantalla

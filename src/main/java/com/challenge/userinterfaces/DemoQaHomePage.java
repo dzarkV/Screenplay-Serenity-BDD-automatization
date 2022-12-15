@@ -1,4 +1,4 @@
-package com.challenge.userinterfaces.registry;
+package com.challenge.userinterfaces;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;

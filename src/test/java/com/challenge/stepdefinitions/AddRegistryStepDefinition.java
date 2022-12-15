@@ -26,12 +26,12 @@ import static org.hamcrest.Matchers.*;
 public class AddRegistryStepDefinition {
 
     private final List<UserData> userDataList = fromCsvToUsersData();
-    private final List<String> webElements = fromJsonFileToList("Flow 1");
+    private final List<String> webElementsRegistry = fromJsonFileToList("Flow 1");
 
     @Given("{string} desea guardar sus datos de usuario en la pagina web")
     public void deseaGuardarSusDatosDeUsuarioEnLaPaginaWeb(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElements.get(0), webElements.get(1)));
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsRegistry.get(0), webElementsRegistry.get(1)));
     }
 
     @When("El ingresa sus datos de usuario completos")

@@ -6,8 +6,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.challenge.userinterfaces.registry.DemoQaElementsPage.SUB_ELEMENT;
-import static com.challenge.userinterfaces.registry.DemoQaHomePage.ELEMENT;
+import static com.challenge.userinterfaces.DemoQaElementsPage.SUB_ELEMENT;
+import static com.challenge.userinterfaces.DemoQaHomePage.ELEMENT;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
 
 public class NavigateTo {

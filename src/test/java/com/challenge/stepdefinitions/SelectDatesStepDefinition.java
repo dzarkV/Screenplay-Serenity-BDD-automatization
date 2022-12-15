@@ -19,11 +19,11 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class SelectDatesStepDefinition {
 
-    private final List<String> webElements = fromJsonFileToList("Flow 2");
+    private final List<String> webElementsDates = fromJsonFileToList("Flow 2");
     @Given("{string} quiere registrar la fecha de nacimiento en la pagina")
     public void quiereRegistrarLaFechaDeNacimiento(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElements.get(0), webElements.get(1)));
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsDates.get(0), webElementsDates.get(1)));
     }
 
     @When("El selecciona la {string}")

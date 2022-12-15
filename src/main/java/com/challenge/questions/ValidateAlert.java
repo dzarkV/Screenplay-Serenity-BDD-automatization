@@ -11,4 +11,5 @@ public class ValidateAlert {
         return Question.about("If data of email field required is not filled")
                 .answeredBy(actor -> actor.asksFor(CSSValue.of(EMAIL_FIELD).named("border-color")));
     }
+
 }

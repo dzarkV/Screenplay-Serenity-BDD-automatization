@@ -2,7 +2,7 @@ package com.challenge.stepdefinitions;
 
 import com.challenge.models.UserData;
 import com.challenge.questions.StillVisible;
-import com.challenge.questions.ValidateAlert;
+import com.challenge.questions.ValidateField;
 import com.challenge.questions.ValidateText;
 import com.challenge.tasks.AddNewRegistry;
 import com.challenge.tasks.DeleteRegistry;
@@ -43,7 +43,7 @@ public class AddRegistryStepDefinition {
     public void veSusDatosComoUnaFilaEnElRegistro() {
             theActorInTheSpotlight().should(
                     seeThat("New registry entered ",
-                            ValidateText.textValidated(),
+                            ValidateText.textInRegistryValidated(),
                             containsString(userDataList.get(0).getName()+
                                     userDataList.get(0).getLastName())));
 
@@ -59,7 +59,7 @@ public class AddRegistryStepDefinition {
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
-                        ValidateAlert.fieldEmailIsEmpty(),
+                        ValidateField.fieldEmailIsEmpty(),
                         equalTo("rgb(220, 53, 69)"))  // color rojo en rgb
         );
     }
@@ -81,7 +81,7 @@ public class AddRegistryStepDefinition {
     public void susDatosNoSonGuardados() {
         theActorInTheSpotlight().should(
                 seeThat("New registry is not saved",
-                        ValidateText.textValidated(),
+                        ValidateText.textInRegistryValidated(),
                         not(containsString(userDataList.get(2).toString()))));
 
     }

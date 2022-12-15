@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.questions.CSSValue;
 
 import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.EMAIL_FIELD;
 
-public class ValidateAlert {
+public class ValidateField {
 
     public static Question<String> fieldEmailIsEmpty(){
         return Question.about("If data of email field required is not filled")

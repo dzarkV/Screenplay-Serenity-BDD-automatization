@@ -13,7 +13,6 @@ import java.util.List;
 import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToList;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
-import static net.serenitybdd.screenplay.questions.ValueOf.the;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasValue;
 
@@ -43,7 +42,7 @@ public class InteractAlertsStepDefinition {
     @Then("Su {string} se muestra en pantalla")
     public void suSeMuestraEnPantalla(String nicknameChecked) {
         theActorInTheSpotlight().should(
-                seeThat(ValidateText.fieldRetrieveInPrompt(),
+                seeThat(ValidateText.fieldRetrieveInPromptAlert(),
                         containsString(nicknameChecked)));
     }
 }

@@ -86,9 +86,9 @@ que es leído por la clase [WebElementsJsonData.java](src/main/java/com/challeng
 }
 ```
 
-El llamado al flujo se realiza desde cada _Step definition_ y se le pasa a los métodos para abrir el navegador.
+El llamado al flujo se realiza desde cada _Step definition_ y se le pasa al método para navegar [theDemoQaSubPage](src/main/java/com/challenge/tasks/NavigateTo.java).
 
-
+![Captura desde 2022-12-15 17-04-00](https://user-images.githubusercontent.com/91356068/207978857-4f45e680-2713-4f60-ab15-65bbc870eb13.png)
 
 El flujo de registro está construído con pruebas basadas en datos leídos de archivo externo `csv`.
 Esto lo permite la clase [CsvToUsersDataRegistry.java](src/main/java/com/challenge/utilities/CsvToUsersDataRegistry.java), que convierte los datos al modelo `UserData` y así manejar el registro ingresado en la _web table_.

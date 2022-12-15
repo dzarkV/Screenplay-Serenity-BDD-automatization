@@ -75,8 +75,24 @@ La automatización consiste en automatizar tres flujos de la página [Demo QA](h
 -----
 ## Características
 
-El flujo de registro está construído con pruebas basadas en datos leídos de archivo externo `csv`. 
-Esto lo permite la clase `CsvToUsersDataRegistry.java`, que convierte los datos al modelo `UserData`.
+Como la estructura de la página es `Page > Subpage` (por ejemplo, Elements > Web Tables), para simplificar la navegación se parametrizó esta estructura con [web_elements.json](src/test/resources/testdata/web_elements.json),
+que es leído por la clase [WebElementsJsonData.java](src/main/java/com/challenge/utilities/WebElementsJsonData.java) y permite definir el flujo como un objeto, así:
+
+```json
+{
+  "Flow <#>": {
+    "<Page>": "<Subpage>"
+  }
+}
+```
+
+El llamado al flujo se realiza desde cada _Step definition_ y se le pasa a los métodos para abrir el navegador.
+
+
+
+El flujo de registro está construído con pruebas basadas en datos leídos de archivo externo `csv`.
+Esto lo permite la clase [CsvToUsersDataRegistry.java](src/main/java/com/challenge/utilities/CsvToUsersDataRegistry.java), que convierte los datos al modelo `UserData` y así manejar el registro ingresado en la _web table_.
+
 
 El flujo de fechas usa el `Scenario Outline` para enviar tanto
 

@@ -9,6 +9,9 @@ import net.serenitybdd.screenplay.questions.TextValue;
 
 public class StillVisible {
 
+    private StillVisible() {
+    }
+
     public static Question<Boolean> submitButton(){
             return Question.about("Submit button is not let continue")
                 .answeredBy(actor -> actor.asksFor(CurrentVisibility.of(DemoQaWebTablesPage.SUBMIT_BUTTON)));

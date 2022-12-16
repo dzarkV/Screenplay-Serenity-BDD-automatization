@@ -1,3 +1,5 @@
+# https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
+# https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 name: Publish living doc
 
 on:
@@ -10,30 +12,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Java
-      - uses: actions/setup-java@v3
-        with:
-          distribution: temurin
-          java-version: 11
+    - name: Setup Java
+    - uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 11
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
-      - name: Execute Gradle build
-        run: ./gradlew build
+    - name: Execute Gradle build
+      run: ./gradlew build
 
-      - name: Execute Test
-        run: ./gradlew clean test
+    - name: Execute Test
+      run: ./gradlew clean test
 
-      - name: Serenity living doc
-        uses: actions/upload-artifact@v3
-        with:
-          name: serenity-report
-          path: Screenplay-Serenity-BDD-automatization/target/site/serenity/**
-          if-no-files-found: error
+    - name: Serenity living doc
+      uses: actions/upload-artifact@v3
+      with:
+        name: serenity-report
+        path: Screenplay-Serenity-BDD-automatization/target/site/serenity/**
+        if-no-files-found: error
 
   deploy:
     needs: gradle-test
@@ -43,17 +45,17 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: serenity-report
-          path: .
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: serenity-report
+        path: .
 
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'serenity-living-doc'
-#          slot-name: 'Testing'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      id: deploy-to-webapp
+      with:
+        app-name: 'serenity-living-doc'
+#         slot-name: 'Testing'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
 

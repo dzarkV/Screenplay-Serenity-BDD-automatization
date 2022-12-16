@@ -8,9 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class WebElementsJsonData {
+public class WebMenuFromJsonData {
 
-    private WebElementsJsonData(){}
+    private WebMenuFromJsonData(){}
     public static List<String> fromJsonFileToListString(String flow){
         JSONParser parser = new JSONParser();
         JSONObject flowData;

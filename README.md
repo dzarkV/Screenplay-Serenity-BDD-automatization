@@ -81,8 +81,8 @@ La automatización consiste en automatizar tres flujos de la página [Demo QA](h
 -----
 ## Características
 
-Como la estructura de la página es `Page > Subpage` (por ejemplo, Elements > Web Tables), para simplificar la navegación se parametrizó esta estructura con [web_elements.json](src/test/resources/testdata/web_elements.json),
-que es leído por la clase [WebElementsJsonData.java](src/main/java/com/challenge/utilities/WebElementsJsonData.java) y permite definir el flujo como un objeto, así:
+Como la estructura de la página es `Menu > Submenu` (por ejemplo, Elements > Web Tables), para simplificar la navegación se parametrizó esta estructura con [web_elements.json](src/test/resources/testdata/web_elements.json),
+que es leído por la clase [WebMenuFromJsonData.java](src/main/java/com/challenge/utilities/WebMenuFromJsonData.java) y permite definir el flujo como un objeto, así:
 
 ```json
 {

@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.*;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
 public class AddNewRegistry {
 
@@ -16,7 +16,7 @@ public class AddNewRegistry {
 
     public static Performable withDataUser(UserData user){
         return Task.where("{0} enter new registries",
-                WaitUntil.the(ADD_BUTTON, isCurrentlyVisible())
+                WaitUntil.the(ADD_BUTTON, isClickable())
                         .forNoMoreThan(2).seconds(),
                 Click.on(ADD_BUTTON),
                 Enter.theValue(user.getName()).into(NAME_FIELD),

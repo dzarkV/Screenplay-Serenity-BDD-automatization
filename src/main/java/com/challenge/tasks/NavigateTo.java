@@ -4,11 +4,12 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.challenge.userinterfaces.DemoQaElementsPage.SUB_ELEMENT;
+import static com.challenge.userinterfaces.DemoQaElementsPage.SUB_MENU;
 import static com.challenge.userinterfaces.DemoQaHomePage.INITIAL_MENU;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
 public class NavigateTo {
 
@@ -21,10 +22,14 @@ public class NavigateTo {
 
     public static Performable theDemoQaSubPage(String initialEndpoint, String secondEndpoint) {
         return Task.where("{0} navigates towards the page needed",
-                WaitUntil.the(INITIAL_MENU.of(initialEndpoint), isCurrentlyVisible())
+                Scroll.to(INITIAL_MENU.of(initialEndpoint)),
+                WaitUntil.the(INITIAL_MENU.of(initialEndpoint), isClickable())
                         .forNoMoreThan(2).seconds(),
                 Click.on(INITIAL_MENU.of(initialEndpoint)),
-                Click.on(SUB_ELEMENT.of(secondEndpoint))
+                Scroll.to(SUB_MENU.of(secondEndpoint)),
+                WaitUntil.the(SUB_MENU.of(secondEndpoint), isClickable())
+                        .forNoMoreThan(2).seconds(),
+                Click.on(SUB_MENU.of(secondEndpoint))
         );
     }
 }

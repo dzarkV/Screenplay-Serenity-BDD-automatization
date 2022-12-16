@@ -11,7 +11,7 @@ import java.util.List;
 
 import static com.challenge.utilities.StringToLocalDate.fromStringToLocalDate;
 import static com.challenge.utilities.StringToLocalDate.fromStringToLocalDatetime;
-import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToList;
+import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToListString;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class SelectDatesStepDefinition {
 
-    private final List<String> webElementsDates = fromJsonFileToList("Flow 2");
+    private final List<String> webElementsDates = fromJsonFileToListString("Flow 2");
     @Given("{string} quiere registrar la fecha de nacimiento en la pagina")
     public void quiereRegistrarLaFechaDeNacimiento(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());

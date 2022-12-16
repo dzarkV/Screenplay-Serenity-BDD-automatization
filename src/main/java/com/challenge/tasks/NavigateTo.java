@@ -7,10 +7,12 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.challenge.userinterfaces.DemoQaElementsPage.SUB_ELEMENT;
-import static com.challenge.userinterfaces.DemoQaHomePage.ELEMENT;
+import static com.challenge.userinterfaces.DemoQaHomePage.INITIAL_MENU;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
 
 public class NavigateTo {
+
+    private NavigateTo(){}
 
     public static Performable theDemoQaHomePage() {
         return Task.where("{0} opens the Demo QA home page",
@@ -19,9 +21,9 @@ public class NavigateTo {
 
     public static Performable theDemoQaSubPage(String initialEndpoint, String secondEndpoint) {
         return Task.where("{0} navigates towards the page needed",
-                WaitUntil.the(ELEMENT.of(initialEndpoint), isCurrentlyVisible())
+                WaitUntil.the(INITIAL_MENU.of(initialEndpoint), isCurrentlyVisible())
                         .forNoMoreThan(2).seconds(),
-                Click.on(ELEMENT.of(initialEndpoint)),
+                Click.on(INITIAL_MENU.of(initialEndpoint)),
                 Click.on(SUB_ELEMENT.of(secondEndpoint))
         );
     }

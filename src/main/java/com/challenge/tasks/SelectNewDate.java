@@ -16,6 +16,8 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurr
 
 public class SelectNewDate {
 
+    private SelectNewDate(){}
+
     public static Performable onlyDate(LocalDate date){
         return Task.where("{0} enter a new date",
                 WaitUntil.the(DATE_INPUT, isCurrentlyVisible())

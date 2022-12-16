@@ -10,7 +10,8 @@ import java.util.*;
 
 public class WebElementsJsonData {
 
-    public static List<String> fromJsonFileToList(String flow){
+    private WebElementsJsonData(){}
+    public static List<String> fromJsonFileToListString(String flow){
         JSONParser parser = new JSONParser();
         JSONObject flowData;
         List<String> listElements = new ArrayList<>();
@@ -18,13 +19,12 @@ public class WebElementsJsonData {
         try {
             flowData = (JSONObject) parser.parse(
                     (new FileReader("src/test/resources/testdata/web_elements.json")));
+            JSONObject obj = (JSONObject) flowData.get(flow);
+            listElements.add(obj.keySet().toString().replaceAll("[\\[\\]]",""));
+            listElements.add(obj.values().toString().replaceAll("[\\[\\]]",""));
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e);
         }
-        HashMap obj  = (HashMap) flowData.get(flow);
-
-        listElements.add(obj.keySet().toString().replaceAll("[\\[\\]]",""));
-        listElements.add(obj.values().toString().replaceAll("[\\[\\]]",""));
 
         return listElements;
     }

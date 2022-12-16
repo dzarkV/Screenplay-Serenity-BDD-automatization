@@ -11,6 +11,8 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurr
 
 public class DeleteRegistry {
 
+    private DeleteRegistry(){}
+
     public static Performable withDeleteButton(){
         return Task.where("{0} delete a registry",
                 WaitUntil.the(NEW_REGISTRY_IN_TABLE, isCurrentlyVisible()).forNoMoreThan(2).seconds(),

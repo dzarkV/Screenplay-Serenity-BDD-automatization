@@ -8,6 +8,8 @@ import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.NEW_REGI
 
 public class ValidateText  {
 
+    private ValidateText(){}
+
     public static Question<String> textInRegistryValidated(){
         return Question.about("If new registry is entered in a new row")
                 .answeredBy(actor -> actor.asksFor(TextContent.of(NEW_REGISTRY_IN_TABLE)));

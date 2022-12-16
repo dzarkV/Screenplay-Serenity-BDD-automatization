@@ -12,6 +12,8 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurr
 
 public class AddNewRegistry {
 
+    private AddNewRegistry(){}
+
     public static Performable withDataUser(UserData user){
         return Task.where("{0} enter new registries",
                 WaitUntil.the(ADD_BUTTON, isCurrentlyVisible())

@@ -18,6 +18,8 @@ import static net.serenitybdd.core.Serenity.*;
 
 public class InteractWithAlerts {
 
+    private InteractWithAlerts(){}
+
     public static Performable toSeeAlert(){
         return Task.where("First button to see first alert",
                 Ensure.that(TO_SEE_BUTTON).isEnabled(),

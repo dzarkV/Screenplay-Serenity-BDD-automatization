@@ -10,15 +10,14 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
-import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToList;
+import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToListString;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasValue;
 
 public class InteractAlertsStepDefinition {
 
-    private final List<String> webElementsAlerts = fromJsonFileToList("Flow 3");
+    private final List<String> webElementsAlerts = fromJsonFileToListString("Flow 3");
     @Given("{string} quiere ver su apodo en pantalla")
     public void quiereVerSuApodoEnPantalla(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());

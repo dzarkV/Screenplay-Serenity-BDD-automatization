@@ -5,11 +5,14 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CsvToUsersDataRegistry {
+
+    private CsvToUsersDataRegistry(){}
 
     public static List<UserData> fromCsvToUsersData() {
         Reader csvFileReader;
@@ -19,12 +22,12 @@ public class CsvToUsersDataRegistry {
             csvFileReader = new FileReader("src/test/resources/testdata/examples_registry.csv");
             Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(csvFileReader);
 
-            for (CSVRecord record : records) {
-                listOfUsers.add(new UserData(record.get("nombre"), record.get("apellido"),
-                                record.get("edad"), record.get("email"),
-                                record.get("salario"), record.get("departamento")));
+            for (CSVRecord csvRecord : records) {
+                listOfUsers.add(new UserData(csvRecord.get("nombre"), csvRecord.get("apellido"),
+                                csvRecord.get("edad"), csvRecord.get("email"),
+                                csvRecord.get("salario"), csvRecord.get("departamento")));
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 

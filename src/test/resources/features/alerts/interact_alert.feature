@@ -6,7 +6,6 @@ Feature: Interactuar con alertas
     And Ingresa su "<apodo>"
     Then Su "<apodo>" se muestra en pantalla
     Examples:
-      | usuario | apodo       |
-      | Messi   | La pulga    |
-      | Jorge   | El patrón   |
-      | Jair    | El chiguiro |
+      | usuario | apodo                                       |
+      | Jorge   | El patróóón                                 |
+      | Messi   | 10000000.....0000000000000.0000000000000000 |

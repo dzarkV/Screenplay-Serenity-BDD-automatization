@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class DemoQaWebTablesPage extends PageObject {
 
+    private DemoQaWebTablesPage(){}
+
     public static final Target ADD_BUTTON = Target.the("Add new registry button")
             .locatedBy("//button[@id='addNewRecordButton']");
 

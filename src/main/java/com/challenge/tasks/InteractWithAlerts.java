@@ -23,7 +23,7 @@ public class InteractWithAlerts {
     public static Performable toSeeAlert(){
         return Task.where("First button to see first alert",
                 Ensure.that(TO_SEE_BUTTON).isEnabled(),
-                MoveMouse.to(TO_SEE_BUTTON).andThen(Actions::click),
+                Click.on(TO_SEE_BUTTON),
                 Switch.toAlert().andAccept()
         );
     }

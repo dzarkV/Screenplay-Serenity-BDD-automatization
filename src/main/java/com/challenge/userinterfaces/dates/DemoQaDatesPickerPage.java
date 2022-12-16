@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class DemoQaDatesPickerPage extends PageObject {
 
+    private DemoQaDatesPickerPage(){}
+
     //Select Date input
     public static final Target DATE_INPUT = Target.the("Date picker input")
             .locatedBy("#datePickerMonthYearInput");

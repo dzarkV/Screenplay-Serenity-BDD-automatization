@@ -5,7 +5,6 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
-----
 
 Automatización de pruebas de aceptación con la librería Serenity BDD y, por tanto, con _living documentation_. 
 Fue guiado por el patrón de diseño Screenplay y el analizador de lenguaje de Gherkin Cucumber.
@@ -115,3 +114,13 @@ El flujo de alertas interactúa con los tres tipos de ventanas de alerta del nav
 En el caso de la alerta Confirm se maneja el retraso de tiempo de 5 segundos que el botón presenta.
 
 En todos los flujos se le hacen preguntas al sistema con las clases en la carpeta `questions`.
+
+## Requerimientos
+
+Para correr el proyecto se necesita Java JDK 1.8 u 11 y Gradle, preferiblemente con la versión 7.2.
+
+Para lanzar las pruebas y generar la _living documentation_ en la carpeta `/target/site/serenity/`:
+
+```bash
+./gradlew clean build test
+```

@@ -24,8 +24,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Execute Gradle build
-      run: ./gradlew build
+#    - name: Execute Gradle build
+#      run: ./gradlew build
 
     - name: Execute Test
       run: ./gradlew test --tests "com.challenge.runners.AddRegistry"

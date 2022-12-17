@@ -9,7 +9,7 @@ public class ValidateField {
 
     private ValidateField(){}
 
-    public static Question<String> fieldEmailIsEmpty(){
+    public static Question<String> colorFieldWhenEmailIsEmpty(){
         return Question.about("If data of email field required is not filled")
                 .answeredBy(actor -> actor.asksFor(CSSValue.of(EMAIL_FIELD).named("border-color")));
     }

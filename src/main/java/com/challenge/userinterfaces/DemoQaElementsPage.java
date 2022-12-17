@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class DemoQaElementsPage extends PageObject {
 
-    public static final Target SUB_ELEMENT = Target.the("Subsection of element")
+    public static final Target SUB_MENU = Target.the("Subsection of element")
             .locatedBy("//span[normalize-space()='{0}']");
 
 }

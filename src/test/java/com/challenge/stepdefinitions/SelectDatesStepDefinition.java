@@ -11,7 +11,7 @@ import java.util.List;
 
 import static com.challenge.utilities.StringToLocalDate.fromStringToLocalDate;
 import static com.challenge.utilities.StringToLocalDate.fromStringToLocalDatetime;
-import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToListString;
+import static com.challenge.utilities.WebMenuFromJsonData.fromJsonFileToListString;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;

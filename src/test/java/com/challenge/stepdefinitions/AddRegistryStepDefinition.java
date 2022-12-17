@@ -12,10 +12,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.Color;
 
 import java.util.List;
 
-import static com.challenge.utilities.WebElementsJsonData.fromJsonFileToListString;
+import static com.challenge.utilities.WebMenuFromJsonData.fromJsonFileToListString;
 import static com.challenge.utilities.CsvToUsersDataRegistry.fromCsvToUsersData;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -24,6 +25,10 @@ import static org.hamcrest.Matchers.*;
 
 
 public class AddRegistryStepDefinition {
+
+    private static final Color RED = Color.fromString("rgb(220, 53, 69)") ;
+//    private static final Color DARK_RED = Color.fromString("rgb(212, 148, 158)");
+//    private static final Color TOO_DARK_RED = Color.fromString("rgb(217, 90, 104)");
 
     private final List<UserData> userDataList = fromCsvToUsersData();
     private final List<String> webElementsRegistry = fromJsonFileToListString("Flow 1");
@@ -59,8 +64,11 @@ public class AddRegistryStepDefinition {
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
-                        ValidateField.fieldEmailIsEmpty(),
-                        equalTo("rgb(220, 53, 69)"))  // color rojo en rgb
+                        ValidateField.colorFieldWhenEmailIsEmpty(),
+                        either(equalTo(RED.asRgb())).or(containsString("2"))
+//                                .or(equalTo(DARK_RED.asRgb()))
+//                                .or(equalTo(TOO_DARK_RED.asRgb()))
+                )  // color rojo de la alerta en rgb
         );
     }
 

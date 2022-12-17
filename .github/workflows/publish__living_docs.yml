@@ -28,7 +28,7 @@ jobs:
       run: ./gradlew build
 
     - name: Execute Test
-      run: ./gradlew clean test
+      run: ./gradlew test --tests "com.challenge.runners.AddRegistry"
 
     - name: Serenity living doc
       uses: actions/upload-artifact@v3

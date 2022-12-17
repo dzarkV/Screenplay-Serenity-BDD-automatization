@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: serenity-report
-        path: Screenplay-Serenity-BDD-automatization/target/site/serenity/**
+        path: Screenplay-Serenity-BDD-automatization/Screenplay-Serenity-BDD-automatization/target/site/serenity/**
         if-no-files-found: error
 
   deploy:

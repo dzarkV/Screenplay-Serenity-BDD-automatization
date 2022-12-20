@@ -26,10 +26,6 @@ import static org.hamcrest.Matchers.*;
 
 public class AddRegistryStepDefinition {
 
-    private static final Color RED = Color.fromString("rgb(220, 53, 69)") ;
-//    private static final Color DARK_RED = Color.fromString("rgb(212, 148, 158)");
-//    private static final Color TOO_DARK_RED = Color.fromString("rgb(217, 90, 104)");
-
     private final List<UserData> userDataList = fromCsvToUsersData();
     private final List<String> webElementsRegistry = fromJsonFileToListString("Flow 1");
 
@@ -62,12 +58,12 @@ public class AddRegistryStepDefinition {
 
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
+        Color RED = Color.fromString("rgb(220, 53, 69)") ;
+
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
                         ValidateField.colorFieldWhenEmailIsEmpty(),
-                        either(equalTo(RED.asRgb())).or(containsString("2"))
-//                                .or(equalTo(DARK_RED.asRgb()))
-//                                .or(equalTo(TOO_DARK_RED.asRgb()))
+                        equalTo(RED.asRgb())
                 )  // color rojo de la alerta en rgb
         );
     }

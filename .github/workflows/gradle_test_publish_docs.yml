@@ -30,6 +30,9 @@ jobs:
     - name: Execute Test
       run: ./gradlew test
 
+    - name: Stop Docker
+      run: docker stop $(docker ps -q)
+
     - name: Serenity living doc
       uses: actions/upload-artifact@v3
       with:

@@ -18,7 +18,7 @@ public class WebMenuFromJsonData {
 
         try {
             flowData = (JSONObject) parser.parse(
-                    (new FileReader("src/test/resources/testdata/web_elements.json")));
+                    (new FileReader("src/test/resources/testdata/web_menu.json")));
             JSONObject obj = (JSONObject) flowData.get(flow);
             listElements.add(obj.keySet().toString().replaceAll("[\\[\\]]",""));
             listElements.add(obj.values().toString().replaceAll("[\\[\\]]",""));

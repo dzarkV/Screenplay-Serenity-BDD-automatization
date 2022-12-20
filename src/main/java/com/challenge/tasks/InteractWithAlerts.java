@@ -53,6 +53,7 @@ public class InteractWithAlerts {
     }
     public static Performable sendKeysToPrompt(String nick){
         getDriver().switchTo().alert().sendKeys(nick);
-        return Task.where("Accept prompt alert before send text", Switch.toAlert().andAccept());
+        return Task.where("Accept prompt alert before send text",
+                Switch.toAlert().andAccept());
     }
 }

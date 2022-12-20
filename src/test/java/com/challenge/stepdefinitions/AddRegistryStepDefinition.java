@@ -59,12 +59,14 @@ public class AddRegistryStepDefinition {
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
         Color RED = Color.fromString("rgb(220, 53, 69)") ;
-
+        Color LITLE_DARK_RED = Color.fromString("rgb(220, 57, 73)");
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
                         ValidateField.colorFieldWhenEmailIsEmpty(),
-                        equalTo(RED.asRgb())
-                )  // color rojo de la alerta en rgb
+                        either(equalTo(RED.asRgb()))
+                                .or(equalTo(LITLE_DARK_RED.asRgb()))
+//                                .or(startsWith("rgb(220,"))
+                )  // color rojo de la alerta en rgb DC3949
         );
     }
 

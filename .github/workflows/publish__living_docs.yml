@@ -1,11 +1,11 @@
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
 # https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-name: Publish living doc
+name: Run test and publish living doc
 
 on:
-  push:
+  pull_request:
     branches:
-      - dev
+      - main
 
 jobs:
   gradle-test:
@@ -24,8 +24,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Get up Selenium Standalone-Chrome within Docker
+      run: docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.7.2-20221219
+
     - name: Execute Test
-      run: ./gradlew test --tests "com.challenge.runners.AddRegistry"
+      run: ./gradlew test
 
     - name: Serenity living doc
       uses: actions/upload-artifact@v3
@@ -53,6 +56,5 @@ jobs:
       id: deploy-to-webapp
       with:
         app-name: 'serenity-living-doc'
-#         slot-name: 'Testing'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
 

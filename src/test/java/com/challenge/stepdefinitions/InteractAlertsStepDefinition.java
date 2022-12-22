@@ -21,7 +21,7 @@ public class InteractAlertsStepDefinition {
     @Given("{string} quiere ver su apodo en pantalla")
     public void quiereVerSuApodoEnPantalla(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsAlerts.get(0), webElementsAlerts.get(1)));
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaMenu(webElementsAlerts.get(0), webElementsAlerts.get(1)));
     }
 
     @When("El recorre las alertas en la pagina")

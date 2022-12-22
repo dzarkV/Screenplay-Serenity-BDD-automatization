@@ -5,7 +5,8 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=dzarkV_Screenplay-Serenity-BDD-automatization&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=dzarkV_Screenplay-Serenity-BDD-automatization)
-[![Run test and publish living doc](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/publish__living_docs.yml/badge.svg)](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/publish__living_docs.yml)
+
+[![Run test and publish living doc](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/gradle_test_publish_docs.yml/badge.svg)](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/gradle_test_publish_docs.yml)
 
 Automatización de pruebas de aceptación con la librería Serenity BDD y, por tanto, con _living documentation_. 
 Fue guiado por el patrón de diseño Screenplay y el analizador de lenguaje de Gherkin Cucumber.

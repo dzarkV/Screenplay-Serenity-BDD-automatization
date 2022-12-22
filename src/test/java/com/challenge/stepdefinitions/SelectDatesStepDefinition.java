@@ -23,7 +23,7 @@ public class SelectDatesStepDefinition {
     @Given("{string} quiere registrar la fecha de nacimiento en la pagina")
     public void quiereRegistrarLaFechaDeNacimiento(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsDates.get(0), webElementsDates.get(1)));
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaMenu(webElementsDates.get(0), webElementsDates.get(1)));
     }
 
     @When("El selecciona la {string}")

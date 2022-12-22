@@ -8,4 +8,4 @@ Feature: Interactuar con alertas
     Examples:
       | usuario | apodo                                       |
       | Jorge   | El patróóón                                 |
-      | Messi   | 10000000.....0000000000000.0000000000000000 |
+      | Lio     | 10000000.....0000000000000.0000000000000000 |

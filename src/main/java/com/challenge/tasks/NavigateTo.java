@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.challenge.userinterfaces.DemoQaElementsPage.SUB_MENU;
+import static com.challenge.userinterfaces.DemoQaMenuPage.SUB_MENU;
 import static com.challenge.userinterfaces.DemoQaHomePage.INITIAL_MENU;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
@@ -20,7 +20,7 @@ public class NavigateTo {
                 Open.browserOn().thePageNamed("pages.demoqa"));
     }
 
-    public static Performable theDemoQaSubPage(String initialEndpoint, String secondEndpoint) {
+    public static Performable theDemoQaMenu(String initialEndpoint, String secondEndpoint) {
         return Task.where("{0} navigates towards the page needed",
                 Scroll.to(INITIAL_MENU.of(initialEndpoint)),
                 WaitUntil.the(INITIAL_MENU.of(initialEndpoint), isClickable())

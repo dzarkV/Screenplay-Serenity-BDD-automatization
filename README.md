@@ -8,10 +8,18 @@
 
 [![Run test and publish living doc](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/gradle_test_publish_docs.yml/badge.svg)](https://github.com/dzarkV/Screenplay-Serenity-BDD-automatization/actions/workflows/gradle_test_publish_docs.yml)
 
-Automatización de pruebas de aceptación con la librería Serenity BDD y, por tanto, con _living documentation_. 
+Automatización de pruebas con la librería Serenity BDD y, por tanto, con _living documentation_. 
 Fue guiado por el patrón de diseño Screenplay y el analizador de lenguaje de Gherkin Cucumber.
 
-El resultado de los test se puede consultar [aquí](https://serenity-living-doc.azurewebsites.net/). El sistema de carpetas es:
+La automatización consiste en automatizar tres flujos de la página [Demo QA](https://demoqa.com/) con las rutas:
+
+* Elements > Web Tables → Para realizar registros en la tabla
+* Widgets > Date Picker → Para ingresar fechas y fechas con hora
+* Alerts, Frame & Windows > Alerts → Para interactuar con los tipos de [alertas](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+
+El resultado de los test se puede consultar [aquí](https://serenity-living-doc.azurewebsites.net/). 
+
+El sistema de archivos es:
 
 ```bash
 src
@@ -20,11 +28,12 @@ src
 │       └── com
 │           └── challenge
 │               ├── exceptions
+│               │   └── ExcepcionGeneral.java
 │               ├── interactions
 │               ├── models
 │               │   └── UserData.java
 │               ├── questions
-│               │   ├── StillVisible.java
+│               │   ├── IsVisibleThe.java
 │               │   ├── ValidateField.java
 │               │   └── ValidateText.java
 │               ├── tasks
@@ -35,17 +44,15 @@ src
 │               │   └── SelectNewDate.java
 │               ├── userinterfaces
 │               │   ├── alerts
-│               │   │   └── DemoQaAlertsPage.java
 │               │   ├── dates
-│               │   │   └── DemoQaDatesPickerPage.java
-│               │   ├── DemoQaElementsPage.java
 │               │   ├── DemoQaHomePage.java
+│               │   ├── DemoQaMenuPage.java
 │               │   └── registry
-│               │       └── DemoQaWebTablesPage.java
 │               └── utilities
 │                   ├── CsvToUsersDataRegistry.java
+│                   ├── ErrorMessage.java
 │                   ├── StringToLocalDate.java
-│                   └── WebElementsJsonData.java
+│                   └── WebMenuFromJsonData.java
 └── test
     ├── java
     │   └── com
@@ -68,18 +75,12 @@ src
         │   │   └── select_date.feature
         │   └── registry
         │       └── add_registry.feature
+        ├── logback-test.xml
         ├── serenity.conf
         └── testdata
             ├── examples_registry.csv
-            └── web_elements.json
+            └── web_menu.json
 ```
-
-La automatización consiste en automatizar tres flujos de la página [Demo QA](https://demoqa.com/) con las rutas:
-
-* Elements > Web Tables → Para realizar registros en la tabla
-* Widgets > Date Picker → Para ingresar fechas y fechas con hora
-* Alerts, Frame & Windows > Alerts → Para interactuar con los tipos de [alertas](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
-
 -----
 ## Características
 
@@ -117,7 +118,7 @@ En el caso de la alerta Confirm se maneja el retraso de tiempo de 5 segundos que
 
 En todos los flujos se le hacen preguntas al sistema con las clases en la carpeta `questions`.
 
-## Requerimientos
+## Requisitos
 
 Para correr el proyecto se necesita Java JDK 1.8 u 11 y Gradle, preferiblemente con la versión 7.2.
 

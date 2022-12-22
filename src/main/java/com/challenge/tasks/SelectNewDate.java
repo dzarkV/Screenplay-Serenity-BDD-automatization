@@ -32,16 +32,16 @@ public class SelectNewDate {
 
     public static Performable withDateAndTime(LocalDateTime date){
         return Task.where("{0} enter a date with time",
-                WaitUntil.the(D_T_INPUT, isCurrentlyVisible())
+                WaitUntil.the(DATE_TIME_INPUT, isCurrentlyVisible())
                         .forNoMoreThan(2).seconds(),
-                Click.on(D_T_INPUT),
-                Click.on(D_T_MONTH_VIEW),
-                Click.on(D_T_MONTH_SELECT.of(date
+                Click.on(DATE_TIME_INPUT),
+                Click.on(DATE_TIME_MONTH_VIEW),
+                Click.on(DATE_TIME_MONTH_SELECT.of(date
                         .format(DateTimeFormatter.ofPattern("MMMM", Locale.ENGLISH)))),
-                Click.on(D_T_YEAR_VIEW),
-                Click.on(D_T_YEAR_SELECT.of(String.valueOf(date.getYear()))),
-                Click.on(D_T_DAY_SELECT.of(Integer.toString(date.getDayOfMonth()))),
-                Click.on(D_T_TIME_SELECT.of(date
+                Click.on(DATE_TIME_YEAR_VIEW),
+                Click.on(DATE_TIME_YEAR_SELECT.of(String.valueOf(date.getYear()))),
+                Click.on(DATE_TIME_DAY_SELECT.of(Integer.toString(date.getDayOfMonth()))),
+                Click.on(DATE_TIME_SELECT.of(date
                         .format(DateTimeFormatter.ofPattern("HH:mm")))));
     }
 }

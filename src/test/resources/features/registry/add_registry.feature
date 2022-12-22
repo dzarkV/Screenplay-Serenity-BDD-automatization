@@ -1,7 +1,7 @@
 Feature: Agregar nuevo registro a web tables
 #  Varias personas como usuarios de la pagina web
-#  Necesitan agregar nuevos registros
-#  Para almacenar sus datos correctamente
+#  necesitan agregar nuevos registros
+#  para hacer uso de los servicios
 
   @happy
   Scenario: Agregar los datos de usuario de manera exitosa

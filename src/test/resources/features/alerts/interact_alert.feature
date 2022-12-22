@@ -1,4 +1,7 @@
 Feature: Interactuar con alertas
+#  Varias personas como usuarios de la pagina web
+#  desean ver sus apodos en pantalla
+
 
   Scenario Outline: Recorrer las alertas de la pagina para ver el nombre de usuario en pantalla
     Given "<usuario>" quiere ver su apodo en pantalla

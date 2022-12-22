@@ -7,9 +7,9 @@ import net.serenitybdd.screenplay.questions.CurrentVisibility;
 import net.serenitybdd.screenplay.questions.TextValue;
 
 
-public class StillVisible {
+public class IsVisibleThe {
 
-    private StillVisible() {
+    private IsVisibleThe() {
     }
 
     public static Question<Boolean> submitButton(){
@@ -24,6 +24,6 @@ public class StillVisible {
 
     public static Question<String> dateAndTimeInScreen(){
         return Question.about("Selected date and time field is on the screen")
-                .answeredBy(actor -> actor.asksFor(TextValue.of(DemoQaDatesPickerPage.D_T_INPUT)));
+                .answeredBy(actor -> actor.asksFor(TextValue.of(DemoQaDatesPickerPage.DATE_TIME_INPUT)));
     }
 }

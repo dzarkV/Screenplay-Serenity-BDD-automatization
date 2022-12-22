@@ -2,7 +2,7 @@ package com.challenge.stepdefinitions;
 
 import com.challenge.exceptions.ExcepcionGeneral;
 import com.challenge.models.UserData;
-import com.challenge.questions.StillVisible;
+import com.challenge.questions.IsVisibleThe;
 import com.challenge.questions.ValidateField;
 import com.challenge.questions.ValidateText;
 import com.challenge.tasks.AddNewRegistry;
@@ -84,7 +84,7 @@ public class AddRegistryStepDefinition {
     @Then("Ella ve que no puede continuar con el registro")
     public void ellaVeQueNoPuedeContinuarConElRegistro() {
         theActorInTheSpotlight().should(seeThat("Actor cannot continue with registry",
-                StillVisible.submitButton(),
+                IsVisibleThe.submitButton(),
                 equalTo(true))
                 .orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );

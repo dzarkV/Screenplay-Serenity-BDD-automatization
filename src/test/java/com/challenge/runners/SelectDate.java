@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         glue = {"com.challenge.hooks","com.challenge.stepdefinitions"},
         features = "src/test/resources/features/dates/select_date.feature",
-        tags = "@selectDate",
+        tags = "@selectDateWithClick",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false
 )

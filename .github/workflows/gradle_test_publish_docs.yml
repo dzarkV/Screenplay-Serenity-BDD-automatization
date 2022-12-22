@@ -28,7 +28,7 @@ jobs:
       run: docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.7.2-20221219
 
     - name: Execute Test
-      run: ./gradlew test
+      run: ./gradlew test -Denvironment=dev
 
     - name: Stop Docker
       run: docker stop $(docker ps -q)

@@ -1,6 +1,6 @@
 package com.challenge.stepdefinitions;
 
-import com.challenge.questions.StillVisible;
+import com.challenge.questions.IsVisibleThe;
 import com.challenge.tasks.NavigateTo;
 import com.challenge.tasks.SelectNewDate;
 import io.cucumber.java.en.Given;
@@ -23,7 +23,7 @@ public class SelectDatesStepDefinition {
     @Given("{string} quiere registrar la fecha de nacimiento en la pagina")
     public void quiereRegistrarLaFechaDeNacimiento(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsDates.get(0), webElementsDates.get(1)));
+        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaMenu(webElementsDates.get(0), webElementsDates.get(1)));
     }
 
     @When("El selecciona la {string}")
@@ -40,12 +40,12 @@ public class SelectDatesStepDefinition {
     public void laFechaSeMuestraEnPantalla(String dateEntered) {
         if(dateEntered.contains(":")){
             theActorInTheSpotlight().should(seeThat(
-                    StillVisible.dateAndTimeInScreen(),
+                    IsVisibleThe.dateAndTimeInScreen(),
                     equalTo(dateEntered)
             ));
         } else {
             theActorInTheSpotlight().should(seeThat(
-                    StillVisible.dateInScreen(),
+                    IsVisibleThe.dateInScreen(),
                     equalTo(dateEntered)
             ));
         }

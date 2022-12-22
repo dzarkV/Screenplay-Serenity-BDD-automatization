@@ -1,18 +1,19 @@
 package com.challenge.stepdefinitions;
 
+import com.challenge.exceptions.ExcepcionGeneral;
 import com.challenge.models.UserData;
-import com.challenge.questions.StillVisible;
+import com.challenge.questions.IsVisibleThe;
 import com.challenge.questions.ValidateField;
 import com.challenge.questions.ValidateText;
 import com.challenge.tasks.AddNewRegistry;
 import com.challenge.tasks.DeleteRegistry;
 import com.challenge.tasks.NavigateTo;
 
+import com.challenge.utilities.ErrorMessage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.Color;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
 
 
 public class AddRegistryStepDefinition {
@@ -32,7 +34,8 @@ public class AddRegistryStepDefinition {
     @Given("{string} desea guardar sus datos de usuario en la pagina web")
     public void deseaGuardarSusDatosDeUsuarioEnLaPaginaWeb(String actor) {
         theActorCalled(actor).wasAbleTo(NavigateTo.theDemoQaHomePage());
-        theActorInTheSpotlight().attemptsTo(NavigateTo.theDemoQaSubPage(webElementsRegistry.get(0), webElementsRegistry.get(1)));
+        theActorInTheSpotlight().attemptsTo(
+                NavigateTo.theDemoQaMenu(webElementsRegistry.get(0), webElementsRegistry.get(1)));
     }
 
     @When("El ingresa sus datos de usuario completos")
@@ -45,8 +48,10 @@ public class AddRegistryStepDefinition {
             theActorInTheSpotlight().should(
                     seeThat("New registry entered ",
                             ValidateText.textInRegistryValidated(),
-                            containsString(userDataList.get(0).getName()+
-                                    userDataList.get(0).getLastName())));
+                            both(containsString(userDataList.get(0).getName()))
+                                    .and(containsString(userDataList.get(0).getLastName())))
+                            .orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
+            );
 
             theActorInTheSpotlight().attemptsTo(DeleteRegistry.withDeleteButton());
     }
@@ -58,15 +63,14 @@ public class AddRegistryStepDefinition {
 
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
-        Color RED = Color.fromString("rgb(220, 53, 69)") ;
-        Color LITTLE_DARK_RED = Color.fromString("rgb(220, 57, 73)");
+        String red = "rgb(220, 53, 69)";
 
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
                         ValidateField.colorFieldWhenEmailIsEmpty(),
-                        either(equalTo(RED.asRgb()))
-                                .or(equalTo(LITTLE_DARK_RED.asRgb())) // color rojo de la alerta en rgb
-                )
+                        either(equalTo(red))
+                                .or(matchesRegex("rgb\\(2[12]\\d, ([4-9]\\d|1[0-7]\\d), ([4-9]\\d|1[0-7]\\d)\\)"))
+                ).orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );
     }
 
@@ -78,8 +82,9 @@ public class AddRegistryStepDefinition {
     @Then("Ella ve que no puede continuar con el registro")
     public void ellaVeQueNoPuedeContinuarConElRegistro() {
         theActorInTheSpotlight().should(seeThat("Actor cannot continue with registry",
-                StillVisible.submitButton(),
+                IsVisibleThe.submitButton(),
                 equalTo(true))
+                .orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );
     }
 
@@ -88,7 +93,8 @@ public class AddRegistryStepDefinition {
         theActorInTheSpotlight().should(
                 seeThat("New registry is not saved",
                         ValidateText.textInRegistryValidated(),
-                        not(containsString(userDataList.get(2).toString()))));
+                        not(containsString(userDataList.get(2).toString())))
+        );
 
     }
 }

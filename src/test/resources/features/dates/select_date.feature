@@ -1,8 +1,11 @@
-Feature: Seleccionar fechas en la pagina web
 #      | Jorge     | 26/04/2017       | 04/26/2017                 |
+Feature: Seleccionar fechas en la pagina web
+#  Varias personas como usuarios de la pagina web
+#  quieren registrar su fecha de nacimiento
+#  para obtener recordatorios de sus compañeros
 
-  @selectDate
-  Scenario Outline: Seleccionar fecha de nacimiento
+  @selectDateWithClick
+  Scenario Outline: Seleccionar fecha de nacimiento con clics
     Given "<usuario>" quiere registrar la fecha de nacimiento en la pagina
     When El selecciona la "<fecha>"
     Then La "<fecha registrada>" se muestra en pantalla

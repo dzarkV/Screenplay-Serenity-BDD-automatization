@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
         glue = {"com.challenge.hooks","com.challenge.stepdefinitions"},
         features = "src/test/resources/features/registry/add_registry.feature",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@incompletedata",
         dryRun = false
 )
 public class AddRegistry {

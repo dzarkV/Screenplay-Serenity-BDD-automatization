@@ -63,15 +63,13 @@ public class AddRegistryStepDefinition {
 
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
-        String red = "rgb(220, 53, 69)" ;
-        String littleDarkRed = "rgb(220, 57, 73)";
+        String red = "rgb(220, 53, 69)";
 
         theActorInTheSpotlight().should(
                 seeThat("Field incompleted is required",
                         ValidateField.colorFieldWhenEmailIsEmpty(),
                         either(equalTo(red))
-                                .or(equalTo(littleDarkRed))
-                                .or(startsWith(red.substring(0,7)))
+                                .or(matchesRegex("rgb\\(2[12]\\d, [5-9]\\d, [1-9]\\d+\\)"))
                 ).orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );
     }

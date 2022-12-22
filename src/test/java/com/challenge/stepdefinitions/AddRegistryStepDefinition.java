@@ -69,7 +69,7 @@ public class AddRegistryStepDefinition {
                 seeThat("Field incompleted is required",
                         ValidateField.colorFieldWhenEmailIsEmpty(),
                         either(equalTo(red))
-                                .or(matchesRegex("rgb\\(2[12]\\d, [5-9]\\d, [1-9]\\d+\\)"))
+                                .or(matchesRegex("rgb\\(2[12]\\d, ([5-9]\\d|1[0-3]\\d), ([5-9]\\d|1[0-3]\\d)\\)"))
                 ).orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );
     }

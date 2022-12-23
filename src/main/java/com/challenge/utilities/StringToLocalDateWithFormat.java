@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class StringToLocalDate {
+public class StringToLocalDateWithFormat {
 
-    private StringToLocalDate(){}
+    private StringToLocalDateWithFormat(){}
 
     public static LocalDate fromStringToLocalDate(String dateString){
             return LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));

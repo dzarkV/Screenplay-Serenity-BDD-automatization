@@ -7,7 +7,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.*;
+import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.ADD_BUTTON;
+import static com.challenge.userinterfaces.registry.PopupRegistry.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
 public class AddNewRegistry {

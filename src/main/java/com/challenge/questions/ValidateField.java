@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.questions.CSSValue;
 
 import java.time.Duration;
 
-import static com.challenge.userinterfaces.registry.DemoQaWebTablesPage.EMAIL_FIELD;
+import static com.challenge.userinterfaces.registry.PopupRegistry.EMAIL_FIELD;
 
 public class ValidateField {
 

@@ -19,7 +19,7 @@ public class DemoQaAlertsPage {
     public static final Target PROMT_BUTTON = Target.the("Button to deploy prompt alert")
             .locatedBy("#promtButton");
 
-    public static final Target PROMT_RESULT = Target.the("Field with text enteredd in prompt alert")
+    public static final Target PROMT_RESULT = Target.the("Field with text entered in prompt alert")
             .locatedBy("#promptResult");
 
 }

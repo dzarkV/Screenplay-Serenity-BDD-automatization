@@ -9,11 +9,13 @@ import com.challenge.tasks.AddNewRegistry;
 import com.challenge.tasks.DeleteRegistry;
 import com.challenge.tasks.NavigateTo;
 
+import com.challenge.questions.CalculateSimilarity;
 import com.challenge.utilities.ErrorMessage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.Color;
 
 import java.util.List;
 
@@ -63,13 +65,14 @@ public class AddRegistryStepDefinition {
 
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
-        String red = "rgb(220, 53, 69)";
+        Color validColor = Color.fromString("rgb(220, 53, 69)");
+        Color colorFromEmptyField = Color.fromString(
+                theActorInTheSpotlight().asksFor(ValidateField.cssColorWhenEmailIsEmpty()));
 
         theActorInTheSpotlight().should(
-                seeThat("Field incompleted is required",
-                        ValidateField.colorFieldWhenEmailIsEmpty(),
-                        either(equalTo(red))
-                                .or(matchesRegex("rgb\\(2[12]\\d, ([4-9]\\d|1[0-7]\\d), ([4-9]\\d|1[0-7]\\d)\\)"))
+                seeThat("There is an unchecked field with red color",
+                        CalculateSimilarity.withEuclidianDistance(colorFromEmptyField, validColor),
+                        is(closeTo(0.0, 50))
                 ).orComplainWith(ExcepcionGeneral.class, ErrorMessage.MSG_ERROR_COMPARE)
         );
     }

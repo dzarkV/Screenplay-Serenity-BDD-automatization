@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import static com.challenge.userinterfaces.dates.DemoQaDatesPickerPage.*;
+import static com.challenge.userinterfaces.dates.DemoQaDatesPickerDate.*;
+import static com.challenge.userinterfaces.dates.DemoQaDatesPickerDateAndTime.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyVisible;
 
 

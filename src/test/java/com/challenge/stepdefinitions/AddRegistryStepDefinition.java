@@ -1,6 +1,7 @@
 package com.challenge.stepdefinitions;
 
 import com.challenge.exceptions.ExcepcionGeneral;
+import com.challenge.models.AlertColor;
 import com.challenge.models.UserData;
 import com.challenge.questions.IsVisibleThe;
 import com.challenge.questions.ValidateField;
@@ -65,7 +66,7 @@ public class AddRegistryStepDefinition {
 
     @Then("El ve un aviso indicando que le falta ingresar el email")
     public void elVeUnAvisoIndicandoQueLeFaltaIngresarElEmail() {
-        Color validColor = Color.fromString("rgb(220, 53, 69)");
+        Color validColor = Color.fromString(AlertColor.VALID_RED.rgb);
         Color colorFromEmptyField = Color.fromString(
                 theActorInTheSpotlight().asksFor(ValidateField.cssColorWhenEmailIsEmpty()));
 

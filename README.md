@@ -32,6 +32,7 @@ src
 │               ├── interactions
 │               ├── models
 │               │   └── UserData.java
+│               │   └── AlertColor.java
 │               ├── questions
 │               │   ├── IsVisibleThe.java
 │               │   ├── ValidateField.java
@@ -51,7 +52,7 @@ src
 │               └── utilities
 │                   ├── CsvToUsersDataRegistry.java
 │                   ├── ErrorMessage.java
-│                   ├── StringToLocalDate.java
+│                   ├── StringToLocalDateFormat.java
 │                   └── WebMenuFromJsonData.java
 └── test
     ├── java
@@ -128,6 +129,13 @@ Para lanzar las pruebas y generar la _living documentation_ en la carpeta `/targ
 ./gradlew clean build test
 ```
 
+O en Windows:
+
+```cmd
+gradlew clean build test
+```
+
 ## CI/CD
 
-Se usa archivo `.yml` [gradle_test_publish_docs](.github/workflows/gradle_test_publish_docs.yml) para definir los _jobs_ de Github Actions de construcción, ejecución de test y despliegue a Azure.
+Se usa archivo `.yml` [gradle_test_publish_docs](.github/workflows/gradle_test_publish_docs.yml) para definir los _jobs_ de 
+Github Actions de construcción, ejecución de test y despliegue a Azure de la documentación.

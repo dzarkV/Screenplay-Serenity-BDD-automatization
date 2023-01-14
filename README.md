@@ -17,7 +17,14 @@ La automatización consiste en automatizar tres flujos de la página [Demo QA](h
 * Widgets > Date Picker → Para ingresar fechas y fechas con hora
 * Alerts, Frame & Windows > Alerts → Para interactuar con los tipos de [alertas](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
 
-El resultado de los test se puede consultar [aquí](https://serenity-living-doc.azurewebsites.net/). 
+**Objetivos**
+
+Se realizan las pruebas automatizadas para validar:
+
+1. Visualización de datos ingresados
+2. Respuesta del sistema ante ingreso de datos incompletos
+
+El resultado de los tests se puede consultar [aquí](https://serenity-living-doc.azurewebsites.net/). 
 
 El sistema de archivos es:
 

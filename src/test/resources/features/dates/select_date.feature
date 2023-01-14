@@ -12,7 +12,7 @@ Feature: Seleccionar fechas en la pagina web
     Examples:
       | usuario   | fecha            | fecha registrada         |
       | Ana       | 03/10/1993       | 10/03/1993               |
-      | Emma      | 22/04/2017 14:15 | April 22, 2017 2:15 PM   |
+      | Emma      | 22/04/2018 14:15 | April 22, 2018 2:15 PM   |
       | Mayra     | 26/04/1945       | 04/26/1945               |
       | Francisca | 01/01/2025 22:00 | January 1, 2025 10:00 PM |
 

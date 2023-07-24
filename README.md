@@ -145,4 +145,4 @@ gradlew clean build test
 ## CI/CD
 
 Se usa archivo `.yml` [gradle_test_publish_docs](.github/workflows/gradle_test_publish_docs.yml) para definir los _jobs_ de 
-Github Actions de construcción, ejecución de test y despliegue a Azure de la documentación.
+Github Actions de construcción y ejecución de pruebas continuas y despliegue a Azure de la documentación.
